@@ -3,6 +3,8 @@
   "dependencies": {
     "angular": "latest",
     "foundation": "latest",
-    "foundation-apps": "latest"
+    "foundation-apps": "latest",
+    "angular-mocks": "latest",
+    "jasmine-core": "latest"
   }
 }
