@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
+//= require modernizr/modernizr
 //= require foundation/js/foundation
 //= require_tree .
+
 $(function() {
   $(document).foundation();
 });
