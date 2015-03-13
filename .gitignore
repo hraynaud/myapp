@@ -80,3 +80,5 @@ pickle-email-*.html
 .envrc
 bin/rspec
 bin/spring
+node_modules
+npm-debug.log
