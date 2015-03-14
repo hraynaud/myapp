@@ -9,7 +9,12 @@ SparkApp.factory('Ideas', function($http) {
       "role": "Programmer",
     },
     "caption": "Free Lunch for everyone",
-    "details": "blase blase blase"
+    "details": "blase blase blase",
+    "upVotes": 5,
+    "downVotes": 5,
+    "commemts": [],
+    "status": "considering", 
+    "locations": ["New York", "Sidney"], 
   },
   {
     "owner": {
@@ -19,7 +24,12 @@ SparkApp.factory('Ideas', function($http) {
       "role": null,
     },
     "caption": "Pay Raises for everyone",
-    "details": "blase blase blase"
+    "details": "blase blase blase",
+    "upVotes": 7,
+    "downVotes": 3, 
+    "commemts": [],
+    "status": "planned", 
+    "locations": ["New York", "Sidney"], 
   },
   ];
 
