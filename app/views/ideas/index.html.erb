@@ -21,32 +21,32 @@
 							<ul>
 								<li >
 								<label>
-									<input type="checkbox" name="All Ideas">
+									<input type="checkbox" ng-click="toggle('status')">
 									All Ideas ({{countForStatus.all()}})
 								</label>
 								</li>	
 								<li >
 								<label>
-									<input type="checkbox" name="planned">
+									<input type="checkbox" ng-model="filter['status']['completed']">
 									Completed ({{countForStatus.completed}})
 								</label>
 								</li>
 								<li>
 								<label>
-									<input type="checkbox" name="planned">
+									<input type="checkbox" ng-model="filter['status']['inPogress']">
 									In Progress({{countForStatus.inProgress}})
 								</label>
 								</li>
 								<li>
 								<label>
-									<input type="checkbox" name="planned">
+									<input type="checkbox" ng-model="filter['status']['planned']">
 									Planned Ideas ({{countForStatus.planned}})
 								</label>
 								</li>
 
 								<li >
 								<label>
-									<input type="checkbox" name="planned">
+									<input type="checkbox" ng-model="filter['status']['considering']">
 									Under Consideration ({{countForStatus.considering}})
 								</label>
 								</li>
@@ -56,10 +56,11 @@
 							<h5 class="title"><a href="#"><%=t "mod.ideas.officeFilterHdr"%></a></h5>
 
 							<ul>
-								<li ng-repeat="location in countForLocation">
+
+								<li ng-repeat="loc in countForLocation">
 								<label>
-									<input type="checkbox" name="planned">
-									{{location.officeName}} ({{location.count}})
+									<input type="checkbox"  ng-model="filter['location'][loc.location]">
+									{{loc.location}} ({{loc.count}})
 								</label>
 								</li>
 							</ul>
@@ -71,7 +72,9 @@
 
 
 			<div class="large-6 columns">
-				<section class="idea row" ng-repeat="idea in ideas" >
+
+
+							<section class="idea row" ng-repeat="idea in filtered=(ideas | filter:filterByProperties)" >
 					<div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
 					<div class="large-10 columns">
 						<h1>{{idea.caption}}
