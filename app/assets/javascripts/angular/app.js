@@ -1,1 +1,2 @@
-angular.module('app', []);
+window.SparkApp = angular.module('SparkApp', []);
+

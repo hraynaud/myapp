@@ -1,79 +1,84 @@
-<div class="row">
-	<div class="small-12 columns">
-		<div class="panel">
-			<h1 ><%=t "mod.ideas.hdrMain"%></h1>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-
-	<div class="large-3 columns ">
-		<div class="panel">
-			<div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
-				<section class="section">
-					<h5 class="title"><a href="#">Show Me</a></h5>
-					<ul>
-						<li></li>
-					</ul>
-				</section>
-				<section class="section">
-					<h5 class="title"><a href="#">For</a></h5>
-				</section>
-			</div>
-
-		</div>
-	</div>
-
-
-
-	<div class="large-6 columns">
+<style>
+</style>
+<div ng-app="SparkApp">
+	<div ng-controller="ideasCtrl">
 		<div class="row">
-			<div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
-			<div class="large-10 columns">
-				<p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
-				<a href="#" class="custom-split-button-class">Upvote<span class="vote-count">3</span></a>
+			<div class="small-12 columns">
+				<div class="panel">
+					<h1 ><%=t "mod.ideas.hdrMain"%></h1>
+				</div>
 			</div>
 		</div>
-		<hr/>
 
-	</div>
-
-
-	<div class="large-3 columns hide-for-small">
-		<section>
-			<h5>Getting Started</h5>
-		</section>
-		<section>
-			<h5>Invite a Colleage</h5>
-		</section>
-		<section>
-			<h5>Help Us Improve ACME Corp</h5>
-		</section>
-	</div>
-
-
-
-
-
-<footer class="row">
-	<div class="large-12 columns">
-		<hr/>
 		<div class="row">
-			<div class="large-5 columns">
-				<p>© Copyright no one at all. Go to town.</p>
+
+			<div class="large-3 columns ">
+				<div class="panel">
+					<div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+						<section class="idea">
+							<h1 class="title"><a href="#">Show Me</a></h1>
+							<ul>
+								<li></li>
+							</ul>
+						</section>
+						<section class="section">
+							<h5 class="title"><a href="#">For</a></h5>
+						</section>
+					</div>
+
+				</div>
 			</div>
-			<div class="large-7 columns">
-				<ul class="inline-list right">
-					<li><a href="#">Section 1</a></li>
-					<li><a href="#">Section 2</a></li>
-					<li><a href="#">Section 3</a></li>
-					<li><a href="#">Section 4</a></li>
-					<li><a href="#">Section 5</a></li>
-					<li><a href="#">Section 6</a></li>
-				</ul>
+
+
+			<div class="large-6 columns">
+				<section class="idea row" ng-repeat="idea in ideas" >
+					<div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+					<div class="large-10 columns">
+						<h1>{{idea.caption}}
+							<p> By {{idea.owner.name}} - {{idea.owner.location}} - {{idea.owner.role}}</p>
+						</h1>
+						<a href="#" class="split-button-vote no-pip">Upvote<span class="vote-count">3</span></a>
+					</div>
+					<hr/>
+				</section>
 			</div>
+
+
+			<div class="large-3 columns hide-for-small">
+				<section>
+					<h5>Getting Started</h5>
+				</section>
+				<section>
+					<h5>Invite a Colleage</h5>
+				</section>
+				<section>
+					<h5>Help Us Improve ACME Corp</h5>
+				</section>
+			</div>
+
+
+
+
+
+			<footer class="row">
+				<div class="large-12 columns">
+					<hr/>
+					<div class="row">
+						<div class="large-5 columns">
+							<p>© Copyright no one at all. Go to town.</p>
+						</div>
+						<div class="large-7 columns">
+							<ul class="inline-list right">
+								<li><a href="#">Section 1</a></li>
+								<li><a href="#">Section 2</a></li>
+								<li><a href="#">Section 3</a></li>
+								<li><a href="#">Section 4</a></li>
+								<li><a href="#">Section 5</a></li>
+								<li><a href="#">Section 6</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</div>
-</footer>
-
