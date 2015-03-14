@@ -14,5 +14,10 @@ module Features
       fill_in 'Password', with: password
       click_button 'Sign in'
     end
+
+		def login(user)
+			signin(user.email, user.password)
+		end
+
   end
 end
