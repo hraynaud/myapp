@@ -1,16 +1,9 @@
 
-SparkApp.factory('IdeasByStatus', function($http) {
-  var statuses = {
-    "planned": 7,
-    "considering": 10,
-    "inProgress": 3,
-    "completed": 55,
-    "all": function(){return 100;},
-  };
-
+SparkApp.factory('IdeasByStatus', function(MockDataService) {
   return {
     get: function () {
-      return statuses;
+      //Fix later
+       MockDataService.get("statuses");
     },
     refresh: function () {
       //getUpdated status here
@@ -21,23 +14,12 @@ SparkApp.factory('IdeasByStatus', function($http) {
 });
 
 
-SparkApp.factory('IdeasByLocation', function($http) {
-  var locations = [
-    {
-    "officeId": 1,
-    "officeName": "New York",
-    "count": 10,
-  },
-  {
-    "officeId": 2,
-    "officeName": "Sidney",
-    "count": 12,
-  }
-  ];
+SparkApp.factory('IdeasByLocation', function(MockDataService) {
+
 
   return {
     get: function () {
-      return locations;
+       return MockDataService.get("locations");
     },
     refresh: function () {
       //getUpdated status here
