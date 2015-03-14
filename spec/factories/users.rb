@@ -8,5 +8,8 @@ FactoryGirl.define do
       role 'admin'
     end
 
-  end
+		trait :user do
+			role 'user'
+		end
+	end
 end
