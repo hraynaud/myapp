@@ -1,5 +1,5 @@
 
-SparkApp.controller('ideasCtrl', function ($scope, Ideas, IdeaStatus, IdeasByLocation) {
+SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
   $scope.ideas = Ideas.get();
 
   $scope.save = function (idea) {
@@ -18,6 +18,6 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas, IdeaStatus, IdeasByLoc
     ideas.remove(idea);
   };
 
-  $scope.statuses = IdeaStatus.get();
-  $scope.ideasByLocation = IdeasByLocation.get();
+  $scope.countForStatus = Ideas.countsByStatus();
+  $scope.countForLocation = Ideas.countsByLocation();
 });

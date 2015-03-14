@@ -1,5 +1,5 @@
 
-SparkApp.factory('Ideas', function($http) {
+SparkApp.factory('Ideas', function($http, IdeasByLocation,IdeasByStatus) {
   var ideas =[
     {
     "owner": {
@@ -44,6 +44,14 @@ SparkApp.factory('Ideas', function($http) {
 
     save: function (idea) {
 
+    },
+
+    countsByLocation: function(){
+       return IdeasByLocation.get();
+    },
+
+    countsByStatus: function(){
+       return IdeasByStatus.get();
     }
   };
 

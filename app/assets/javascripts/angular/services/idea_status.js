@@ -1,5 +1,5 @@
 
-SparkApp.factory('IdeaStatus', function($http) {
+SparkApp.factory('IdeasByStatus', function($http) {
   var statuses = {
     "planned": 7,
     "considering": 10,
