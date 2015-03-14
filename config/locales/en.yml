@@ -25,3 +25,17 @@ en:
   mod:
     ideas:
       hdrMain: "Latest Ideas" 
+      addIdea: "Add Idea" 
+      upVote:   "Upvote" 
+      downVote:   "Dowvote" 
+      allIdeas:   "All Ideas" 
+      allOffices:   "All Offices" 
+      statusConsidering: "Under Consideration" 
+      statusCompleted: "Completed" 
+      statusPlanned: "Planned" 
+      statusInProgess: "In Progress" 
+      comments: "Comments" 
+      comment: "Comment"
+      officeFilterHdr: "For" 
+      ideaFilterHdr: "Show Me" 
+        
