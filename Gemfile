@@ -13,7 +13,6 @@ gem 'pg'
 gem 'pundit'
 
 group :development do
-  gem 'bower-rails'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -36,6 +35,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'bower-rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'
