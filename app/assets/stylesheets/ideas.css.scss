@@ -1,0 +1,28 @@
+section.idea{ 
+	h1{
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 3px;
+		p{
+			opacity: .50;
+		}
+	}
+}
+
+
+
+.split-button-vote {
+	@include split-button();
+
+	span:before{ border-style:none; }
+	span:after{ border-style:none; }
+	span>i{
+		top: 50%;
+		display: block;
+		position: absolute;
+		left: 50%;
+		margin-left: -0.28889em;
+		margin-top: -0.48889em;
+	}
+}
+
