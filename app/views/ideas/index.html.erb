@@ -77,10 +77,12 @@
 							<section class="idea row" ng-repeat="idea in filtered=(ideas | filter:filterByProperties)" >
 					<div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
 					<div class="large-10 columns">
-						<h1>{{idea.caption}}
-							<p> By {{idea.owner.name}} - {{idea.owner.location}} - {{idea.owner.role}}</p>
+						<h1>{{idea.title}}
+							<p> By {{idea.user.first_name}} {{idea.user.last_name}} {{idea.user.location}}  {{idea.owner.role}}</p>
 						</h1>
-						<a href="#" class="split-button-vote"><%=t "mod.ideas.upVote"%><span class="vote-count">{{idea.upVotes}}</span></a>
+						<p>{{idea.body}}</p>
+						<a href="#" class="split-button-vote"><%=t "mod.ideas.upVote"%><span class="vote-count">{{idea.up_votes}}</span></a>
+						<a href="#" >{{idea.comments_count}} <%=t "mod.ideas.comments"%></a>
 					</div>
 					<hr/>
 				</section>
