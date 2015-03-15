@@ -1,11 +1,13 @@
 
-SparkApp.factory('Ideas', function($http, MockDataService, IdeasByLocation,IdeasByStatus) {
-    var ideas = MockDataService.get("ideas"); 
+SparkApp.factory('Ideas', function($http, DataService, IdeasByLocation,IdeasByStatus) {
+    // var ideas = MockDataService.get("ideas"); 
+  var ideas = [];
+     
 
 
   return {
-    get: function () {
-      return ideas;
+    get: function (route) {
+      return DataService.list("ideas.json"); 
     },
     add: function (idea) {
       ideas.push(idea);

@@ -1,6 +1,15 @@
 
 SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
-  $scope.ideas = Ideas.get();
+  var ideas =[];
+
+  $scope.ideas =  Ideas.get();
+
+  if (ideas.length === 0){
+    for (var i = 0, ii = ideas.length; i < ii; i++) {
+     ideas.push(response[i]);
+    }
+  } 
+
 
   $scope.save = function (idea) {
     ideas.save(idea);

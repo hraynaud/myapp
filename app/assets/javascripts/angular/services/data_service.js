@@ -4,8 +4,19 @@ SparkApp.factory('DataService', function($http) {
     get: function () {
       return statuses;
     },
-    list: function () {
-      //getUpdated status here
+    list: function (route) {
+      var result = [];
+        $http.get(route)
+        .success(function (response) {
+          for (var i = 0, ii = response.length; i < ii; i++) {
+            result.push(response[i]);
+            console.log(result[0]);
+          }
+        })
+        .error(function(){
+
+        });
+        return result;
     },
     put: function(){
 
@@ -34,3 +45,5 @@ SparkApp.factory('MockDataService', function($http) {
   };
 
 });
+
+
