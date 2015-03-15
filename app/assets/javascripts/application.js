@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
+//= require angular-animate/angular-animate
 //= require modernizr/modernizr
 //= require foundation/js/foundation
 //= require_tree .

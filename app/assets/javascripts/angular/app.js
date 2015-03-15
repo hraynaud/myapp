@@ -1,2 +1,2 @@
-window.SparkApp = angular.module('SparkApp', []);
+window.SparkApp = angular.module('SparkApp', ['ngAnimate']);
 

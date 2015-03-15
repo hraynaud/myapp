@@ -1,13 +1,13 @@
-<style>
-</style>
+
 <div ng-app="SparkApp">
 	<div ng-controller="ideasCtrl">
+
 		<div class="row">
 			<div class="small-12 columns">
 				<div class="panel">
 					<h1><%=t "mod.ideas.hdrMain"%></h1>
 					<button ng-click="suggest()"><%=t "mod.ideas.addIdea"%></button>
- 				</div>
+				</div>
 			</div>
 		</div>
 
@@ -102,4 +102,34 @@
 			</div>
 
 		</div>
+
+		<modal show='modalShown'>
+		<h2 id="newIdeaModalTitle">What is your idea?</h2>
+		<form novalidate name="ideaForm">
+			<input type="text" name="idea[title]" ng-model="idea.title" placeholder="Type your idea hear" required>
+			<textarea id="" name="idea[body]" cols="30" rows="10" ng-model="idea.body" placeholder="Please say more about your idea (optional)" ></textarea>
+			<label>
+				<input type="radio" name="idea[location]" value='L' ng-model="idea.locationType">
+				My Location Only 
+			</label>
+			<label>
+				<input type="radio" name="idea[location]" value='A' ng-model="idea.locationType">
+				All Offices 
+			</label>
+			<label >
+				<input type="radio" name="idea[location]" value='S' ng-model="idea.locationType">
+				Specific Offices
+			</label>
+
+			<select id="" name="idea[offices]" multiple="true" ng-model="idea.offices" ng-model="idea.offices" >
+				<option value="" ng-repeat="office in office" value={{office.id}}>{{office.name}} {{office.city}} {office.state}} {{office.country}}</option>
+			</select>
+
+			<input type="submit" class="button" ng-click='submit()' ng-disabled="ideaForm.$invalid">
+		</form>
+
+		</modal>
+
 	</div>
+</div>
+

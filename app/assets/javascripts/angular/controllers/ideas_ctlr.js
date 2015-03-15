@@ -8,6 +8,15 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
     $scope.toggleModal();
   };
 
+  $scope.submit = function(){
+    Ideas.add($scope.idea)
+    .then(function(response){
+      console.log(response);
+      $scope.modalShown = false;
+    },
+    function(response){
+      alert("barely made it here");
+    });
 
   };
 
@@ -27,7 +36,13 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
   $scope.countForLocation = Ideas.countsByLocation();
 
   $scope.filter = { "status": {}, "location": {} };
+  $scope.toggleFilter = function(type){
      alert(type);
+  };
+
+  $scope.modalShown = false;
+  $scope.toggleModal = function() {
+    $scope.modalShown = !$scope.modalShown;
   };
 
 
@@ -68,3 +83,4 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
     /**/
   };
 
+  });
