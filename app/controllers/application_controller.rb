@@ -20,5 +20,8 @@ class ApplicationController < ActionController::Base
 		super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
 	end
 
+	def default_serializer_options
+		{root: false}
+	end
 	
 end

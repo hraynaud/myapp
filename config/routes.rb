@@ -4,4 +4,10 @@ Rails.application.routes.draw do
 
 
    resources :ideas
+   
+	 namespace "api",:constraints => { :format => 'json' } do
+
+		 resources :offices
+	 end
+
 end
