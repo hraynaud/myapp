@@ -35,6 +35,7 @@ group :test do
 end
 
 group :development, :test do
+	gem 'populator'
   gem 'bower-rails'
   gem 'faker'
   gem 'pry-rails'
