@@ -6,4 +6,9 @@ def index
 		respond_with(@ideas)
 end
 
+
+def default_serializer_options
+  {root: false}
+end
+
 end
