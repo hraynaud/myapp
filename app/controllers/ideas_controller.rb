@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
  respond_to :json, :html
 
 def index
-	  @ideas = Idea.all
+	@ideas = Idea.all.limit(10)
 		respond_with(@ideas)
 end
 
