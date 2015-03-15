@@ -1,10 +1,9 @@
 class CreateVotes < ActiveRecord::Migration
   def change
     create_table :votes do |t|
-      t.references :users, index: true
-      t.references :ideas, index: true
-      t.integer :ups
-      t.integer :downs
+      t.references :user, index: true
+      t.references :idea, index: true
+      t.integer :direction
 
       t.timestamps null: false
     end
