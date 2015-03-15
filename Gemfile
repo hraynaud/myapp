@@ -12,6 +12,8 @@ gem 'devise'
 gem 'pg'
 gem 'pundit'
 gem 'active_model_serializers', "~> 0.9.2"
+gem 'redis'
+gem 'redis-rails'
 
 group :development do
   gem 'better_errors'
