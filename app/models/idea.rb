@@ -4,4 +4,13 @@ class Idea < ActiveRecord::Base
 	has_many :votes
 
 	enum status: [:considering, :planned, :in_progress, :completed, :rejected]
+
+
+  def up_votes
+		votes.up.count
+	end
+
+  def dow_votes
+		votes.down.count
+	end
 end
