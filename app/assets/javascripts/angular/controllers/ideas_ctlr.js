@@ -1,37 +1,32 @@
 
 SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
-  var ideas =[];
 
   $scope.ideas =  Ideas.get();
-
-  if (ideas.length === 0){
-    for (var i = 0, ii = ideas.length; i < ii; i++) {
-     ideas.push(response[i]);
-    }
-  } 
-
-
-  $scope.save = function (idea) {
-    ideas.save(idea);
-  };
-
-  $scope.add = function (idea) {
-    ideas.add(idea);
-  };
+  $scope.idea = {};
 
   $scope.suggest = function () {
-    var idea = window.prompt("what is your idea");
+    $scope.toggleModal();
   };
 
-  $scope.remove = function (idea) {
-    ideas.remove(idea);
+
+  };
+
+  $scope.upVote = function (idea) {
+    $.scope.ideas.upVote(idea);
+  };
+
+  $scope.downVote = function (idea) {
+    $.scope.ideas.downVote(idea);
+  };
+
+  $scope.addComment = function (idea) {
+    $scope.ideas.addComment(comment);
   };
 
   $scope.countForStatus = Ideas.countsByStatus();
   $scope.countForLocation = Ideas.countsByLocation();
 
   $scope.filter = { "status": {}, "location": {} };
-  $scope.toggle = function(type){
      alert(type);
   };
 
@@ -47,6 +42,15 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
       }
     }
     return matchesAND;
+
+
+    function noSubFilter(subFilterObj) {
+      for (var key in subFilterObj) {
+        if (subFilterObj[key]) return false;
+      }
+      return true;
+    }
+
     /**/
     /*
     // Use this snippet for matching with OR
@@ -64,10 +68,3 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
     /**/
   };
 
-    function noSubFilter(subFilterObj) {
-      for (var key in subFilterObj) {
-        if (subFilterObj[key]) return false;
-      }
-      return true;
-    }
-});
