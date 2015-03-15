@@ -62,10 +62,10 @@
 						<section class="section">
 							<h5 class="title"><a href="#"><%=t "mod.ideas.officeFilterHdr"%></a></h5>
 							<ul>
-								<li ng-repeat="loc in countForLocation">
+								<li ng-repeat="office in offices">
 								<label>
-									<input type="checkbox"  ng-model="filter['location'][loc.location]">
-									{{loc.location}} ({{loc.count}})
+									<input type="checkbox"  ng-model="filter['offices'][office.office_id]">
+									{{office.city}} ({{office.ideas}})
 								</label>
 								</li>
 							</ul>
@@ -75,8 +75,9 @@
 			</div>
 
 			<div class="large-6 columns">
-				<section class="idea row" ng-repeat="idea in filtered=(ideas | filter:filterByProperties)" >
+				<section class="idea row" ng-repeat="idea in filtered=(ideas | filter:filterByOffices)" >
 					<div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+					{{idea}}
 					<div class="large-10 columns">
 						<h1>{{idea.title}}
 							<p> By {{idea.user.first_name}} {{idea.user.last_name}} {{idea.user.location}}  {{idea.owner.role}}</p>

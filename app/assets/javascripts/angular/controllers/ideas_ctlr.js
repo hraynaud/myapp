@@ -1,17 +1,22 @@
 
 SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
 
-  $scope.ideas =  Ideas.get();
   $scope.idea = {};
+  $scope.modalShown = false;
+  $scope.filter = {  "offices": {} };
+
+  $scope.ideas =  Ideas.get();
+  $scope.countForStatus = Ideas.countsByStatus();
+  $scope.offices = Ideas.countsByLocation();
 
   $scope.suggest = function () {
     $scope.toggleModal();
   };
 
+
   $scope.submit = function(){
     Ideas.add($scope.idea)
     .then(function(response){
-      console.log(response);
       $scope.modalShown = false;
     },
     function(response){
@@ -31,56 +36,79 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
   $scope.addComment = function (idea) {
     $scope.ideas.addComment(comment);
   };
+  
 
-  $scope.countForStatus = Ideas.countsByStatus();
-  $scope.countForLocation = Ideas.countsByLocation();
-
-  $scope.filter = { "status": {}, "location": {} };
   $scope.toggleFilter = function(type){
      alert(type);
   };
 
-  $scope.modalShown = false;
   $scope.toggleModal = function() {
     $scope.modalShown = !$scope.modalShown;
   };
 
 
-  $scope.filterByProperties = function (idea) {
+  $scope.filterByOffices = function (idea) {
     // Use this snippet for matching with AND
+        // console.log($scope.filter);
     var matchesAND = true;
-    for (var prop in $scope.filter) {
-      if (noSubFilter($scope.filter[prop])) continue;
-      if (!$scope.filter[prop][idea[prop]]) {
-        matchesAND = false;
-        break;
-      }
-    }
-    return matchesAND;
-
-
+    var prop;
     function noSubFilter(subFilterObj) {
       for (var key in subFilterObj) {
+
         if (subFilterObj[key]) return false;
       }
       return true;
     }
 
+    // for ( prop in $scope.filter) {
+    //   if (noSubFilter($scope.filter[prop])) {
+    //     continue;
+    //   }
+    //   if (!$scope.filter[prop][idea[prop]]) {
+
+    //     matchesAND = false;
+    //     break;
+    //   }
+    // }
+    // return matchesAND;
+
+
+
     /**/
     /*
     // Use this snippet for matching with OR
+    //
+    //
+   */
+
+   function find(val, lookup){
+
+
+   }
+
     var matchesOR = true;
-    for (var prop in $scope.filter) {
-    if (noSubFilter($scope.filter[prop])) continue;
-    if (!$scope.filter[prop][wine[prop]]) {
-    matchesOR = false;
-    } else {
-    matchesOR = true;
-    break;
-    }
+    for ( prop in $scope.filter) {
+
+     var filteringBy = $scope.filter[prop];
+     var selectedId =parseInt(Object.keys(filteringBy)[0], 10);
+     var objectToscan = idea[prop];
+
+      if (noSubFilter($scope.filter[prop])) {
+        continue;
+      }
+      
+      filterHasKey = filteringBy[objectToscan];
+      inArry =  objectToscan.indexOf(selectedId) != -1;
+      ix = objectToscan.indexOf(selectedId);
+
+      if (!inArry && !filterHasKey) {
+        matchesOR = false;
+      } else {
+        matchesOR = true;
+        break;
+      }
     }
     return matchesOR;
-    /**/
   };
 
   });

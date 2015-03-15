@@ -14,12 +14,13 @@ SparkApp.factory('IdeasByStatus', function(MockDataService) {
 });
 
 
-SparkApp.factory('IdeasByLocation', function(MockDataService) {
+SparkApp.factory('IdeasByLocation', function(DataService) {
 
+  var dataService  = DataService;
 
   return {
     get: function () {
-       return MockDataService.get("locations");
+       return dataService.list("/api/offices.json");
     },
     refresh: function () {
       //getUpdated status here
