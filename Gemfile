@@ -11,6 +11,7 @@ gem 'devise'
 #gem 'foundation-rails'
 gem 'pg'
 gem 'pundit'
+gem 'active_model_serializers', "~> 0.9.2"
 
 group :development do
   gem 'better_errors'
