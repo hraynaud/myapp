@@ -30,8 +30,9 @@ namespace :dev do
     desc "Clears and resest the db as well and Elastic Search Index and Redis"
     task :reset_all_data => [:environment] do
       Rake::Task["db:reset"].invoke
+			$redis.flushdb
     end
-
+ 
     task :env_check do
       raise "Hey, development only you monkey!" unless (Rails.env.development? or Rails.env.demo?)
     end
