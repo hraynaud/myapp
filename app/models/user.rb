@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   validates :office_id, presence: true
 
+	has_many :comments
+  has_many :votes
+
   def set_default_role
     self.role ||= :user
   end

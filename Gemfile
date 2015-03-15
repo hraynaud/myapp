@@ -14,6 +14,7 @@ gem 'pundit'
 gem 'active_model_serializers', "~> 0.9.2"
 gem 'redis'
 gem 'redis-rails'
+gem 'rails-observers'
 
 group :development do
   gem 'better_errors'
