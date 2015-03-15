@@ -10,7 +10,6 @@ SparkApp.factory('DataService', function($http) {
         .success(function (response) {
           for (var i = 0, ii = response.length; i < ii; i++) {
             result.push(response[i]);
-            console.log(result[0]);
           }
         })
         .error(function(){
