@@ -1,12 +1,9 @@
 
-SparkApp.factory('IdeasByStatus', function(MockDataService) {
+SparkApp.factory('IdeasByStatus', function(DataService) {
+  var dataService  = DataService;
   return {
     get: function () {
-      //Fix later
-       MockDataService.get("statuses");
-    },
-    refresh: function () {
-      //getUpdated status here
+      return dataService.list("/api/statuses.json");
     },
 
   };
@@ -20,10 +17,7 @@ SparkApp.factory('IdeasByLocation', function(DataService) {
 
   return {
     get: function () {
-       return dataService.list("/api/offices.json");
-    },
-    refresh: function () {
-      //getUpdated status here
+      return dataService.list("/api/offices.json");
     },
 
   };

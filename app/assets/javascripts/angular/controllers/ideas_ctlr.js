@@ -5,8 +5,10 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
   $scope.modalShown = false;
   $scope.filter = {  "offices": {} };
 
+
   $scope.ideas =  Ideas.get();
-  $scope.countForStatus = Ideas.countsByStatus();
+  var temp = Ideas.countsByStatus();
+  $scope.countForStatus = temp; 
   $scope.offices = Ideas.countsByLocation();
 
   $scope.suggest = function () {
@@ -45,6 +47,72 @@ SparkApp.controller('ideasCtrl', function ($scope, Ideas) {
   $scope.toggleModal = function() {
     $scope.modalShown = !$scope.modalShown;
   };
+
+
+
+  $scope.filterByStatus = function (idea) {
+    var matchesAND = true;
+    var prop = status;
+    function noSubFilter(subFilterObj) {
+      for (var key in subFilterObj) {
+
+        if (subFilterObj[key]) return false;
+      }
+      return true;
+    }
+
+    // for ( prop in $scope.filter) {
+    //   if (noSubFilter($scope.filter[prop])) {
+    //     continue;
+    //   }
+    //   if (!$scope.filter[prop][idea[prop]]) {
+
+    //     matchesAND = false;
+    //     break;
+    //   }
+    // }
+    // return matchesAND;
+
+
+
+    /**/
+    /*
+    // Use this snippet for matching with OR
+    //
+    //
+    */
+
+    function find(val, lookup){
+
+
+    }
+
+    var matchesOR = true;
+
+    var filteringBy = $scope.filter[prop];
+    var selectedId =parseInt(Object.keys(filteringBy)[0], 10);
+    var objectToscan = idea[prop];
+
+    // if (noSubFilter($scope.filter[prop])) {
+    //   continue;
+    // }
+
+    filterHasKey = filteringBy[objectToscan];
+    inArry =  objectToscan.indexOf(selectedId) != -1;
+    ix = objectToscan.indexOf(selectedId);
+
+    if (!inArry && !filterHasKey) {
+      matchesOR = false;
+    } else {
+      matchesOR = true;
+    }
+
+    return matchesOR;
+  };
+
+
+
+
 
 
   $scope.filterByOffices = function (idea) {

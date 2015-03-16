@@ -1,18 +1,16 @@
 
 SparkApp.factory('Ideas', function($http, DataService, IdeasByLocation,IdeasByStatus) {
-    // var ideas = MockDataService.get("ideas"); 
-  var ideas = [];
-    
-  
-   
+  //var dataService = MockDataService;
+  var dataService  = DataService;
+
 
   return {
     get: function (route) {
-      return DataService.list("ideas.json"); 
+      return dataService.list("ideas.json"); 
     },
 
     add: function (idea) {
-      return DataService.post("ideas.json",idea);
+      return dataService.post("ideas.json",idea);
     },
 
     save: function (idea) {
@@ -20,11 +18,11 @@ SparkApp.factory('Ideas', function($http, DataService, IdeasByLocation,IdeasBySt
     },
 
     countsByLocation: function(){
-       return IdeasByLocation.get();
+      return IdeasByLocation.get();
     },
 
     countsByStatus: function(){
-       return IdeasByStatus.get();
+      return IdeasByStatus.get();
     }
   };
 
