@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	belongs_to :office
 
-  validates :office_id, presence: true
+  validates_associated :office, presence: true
 
 	has_many :comments
   has_many :votes
