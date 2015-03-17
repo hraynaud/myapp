@@ -16,6 +16,7 @@ gem 'redis'
 gem 'redis-rails'
 gem 'rails-observers'
 
+gem 'bower-rails'
 gem 'faker'
 
 group :development do
@@ -42,7 +43,6 @@ end
 
 group :development, :test do
 	gem 'populator'
-  gem 'bower-rails'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
