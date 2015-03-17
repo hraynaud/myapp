@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root to: "ideas#index"
-  devise_for :users, controllers: {
-        sessions: 'sessions'
-      }
-    end
+
+	devise_for :users, controllers: {
+		sessions: 'sessions'
+	}
+
 
 	get  "api/statuses", to: "api/statuses#index" 
 
