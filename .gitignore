@@ -25,6 +25,7 @@ db/*.sqlite3
 **.war
 *.rbc
 *.sassc
+*.swp
 .redcar/
 .sass-cache
 /config/config.yml
@@ -82,3 +83,4 @@ bin/rspec
 bin/spring
 node_modules
 npm-debug.log
+.myapprc
